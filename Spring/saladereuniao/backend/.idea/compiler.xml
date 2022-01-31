@@ -9,11 +9,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="saladereuniao1" />
         <module name="saladereuniao" />
+        <module name="backend" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="backend" options="-parameters" />
       <module name="saladereuniao" options="-parameters" />
       <module name="saladereuniao1" options="-parameters" />
     </option>
