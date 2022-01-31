@@ -13,8 +13,7 @@ export class UpdateRoomComponent implements OnInit {
   room: Room;
   submitted = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private RoomService: RoomService) {
-
+  constructor(private route: ActivatedRoute, private router: Router, private roomService: RoomService) {
   }
 
   ngOnInit() {
@@ -22,24 +21,28 @@ export class UpdateRoomComponent implements OnInit {
 
     this.id = this.route.snapshot.params['id'];
 
-    this.RoomService.getRoom(this.id).subscribe(data => {
-      console.log(data);
-      this.room = data;
-    }, error => console.log(error));
+    this.roomService.getRoom(this.id)
+      .subscribe(data => {
+        console.log(data)
+        this.room = data;
+      }, error => console.log(error));
   }
 
-}
 
-updateRoom(){
-  this.RoomService.UpdateRoom(this.id, this.room).subscribe(data => console.log(data), error => console.log(error));
-  this.room = new Room();
-  this.gotoList();
-}
 
-onSubmit(){
-  this.updateRoom();
-}
+  updateRoom() {
+    this.roomService.updateRoom(this.id, this.room)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.room = new Room();
+    this.gotoList();
+  }
 
-gotoList(){
-  this.router.navigate(['/rooms']);
+  onSubmit() {
+    this.updateRoom();
+  }
+
+  gotoList() {
+    this.router.navigate(['/rooms']);
+  }
+
 }

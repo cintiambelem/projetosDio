@@ -8,31 +8,33 @@ import { HttpClient } from '@angular/common/http';
 export class RoomService {
 
 
-  private baseUrl = 'http://localhost:8080/api/v1/rooms'
+  private baseUrl = 'http://localhost:8080/api/v1/rooms';
 
   constructor(private http: HttpClient) { }
 
-    getRoom(id: number): Observable <any>{
-      return this.http.get(`${this.baseUrl}/${id}`);
-    }
+  getRoom(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
 
-    createRoom(room: Object):Observable<Object>{
-      return this.http.post(`${this.baseUrl}}`, room);
-    }
+  createRoom(room: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}}`, room);
+  }
 
-    updateRoom(id: number, value: any): Observable<Object>{
-      return this.http.put(`${this.baseUrl}/${id}`, value)
-    }
+  updateRoom(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value)
+  }
 
-    deteleRoom(id: number): Observable<any>{
-      return this.http.delete(`${this.baseUrl}/${id}`, {responseType: 'text'})
-    }
+  deleteRoom(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' })
+  }
 
-    getRoomList(): Observable<any>{
-      return this.http.get(`${this.baseUrl}`);
-    }
+  getRoomList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
 
 }
+
+
 
 
 

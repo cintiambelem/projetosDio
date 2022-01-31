@@ -9,20 +9,20 @@ import { Room } from '../room';
   styleUrls: ['./room-details.component.css']
 })
 export class RoomDetailsComponent implements OnInit {
-  id: number | undefined
-  room: Room | undefined;
+  id: number;
+  room: Room;
 
-  constructor(private route: ActivatedRoute, private router: Router, private RoomService: RoomService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private roomService: RoomService) { }
 
   ngOnInit() {
     this.room = new Room();
     this.id = this.route.snapshot.params['id'];
 
-    this.RoomService.getRoomList(this.id).subscribe((data: Room | undefined)=>{
+    this.roomService.getRoomList()
+    .subscribe(data => {
       console.log(data)
       this.room = data;
-
-    }, (error: any) => console.log(error));
+    }, error => console.log(error));
   }
 
   list(){

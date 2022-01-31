@@ -25,12 +25,12 @@ export class RoomListComponent implements OnInit {
 
   }
 
-  deteleRoom(id: number) {
-    this.roomService.deleteRoom{ id }.subscribe((data: any) => {
+  deleteRoom(id: number) {
+    this.roomService.deleteRoom (id).subscribe(data => {
       console.log(data)
       this.reloadData();
     },
-      (error: any) => console.log(error)
+      error => console.log(error)
     );
 
   }
@@ -46,7 +46,5 @@ export class RoomListComponent implements OnInit {
 
 
 }
-function subscribe(arg0: (data: any) => void, arg1: (error: any) => void) {
-  throw new Error('Function not implemented.');
-}
+
 
