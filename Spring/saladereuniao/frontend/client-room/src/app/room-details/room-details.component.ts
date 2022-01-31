@@ -18,7 +18,7 @@ export class RoomDetailsComponent implements OnInit {
     this.room = new Room();
     this.id = this.route.snapshot.params['id'];
 
-    this.roomService.getRoomList()
+    this.roomService.getRoom(this.id)
     .subscribe(data => {
       console.log(data)
       this.room = data;

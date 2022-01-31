@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./room-list.component.css']
 })
 export class RoomListComponent implements OnInit {
-  rooms: Observable<Room[]> | undefined;
+  rooms: Observable<Room[]>;
 
   constructor(private roomService: RoomService, private router: Router) { }
 
@@ -21,7 +21,7 @@ export class RoomListComponent implements OnInit {
   }
 
   reloadData() {
-    this.rooms = this.roomService.getRoomList();
+    this.rooms = this.roomService.getRoomsList();
 
   }
 
